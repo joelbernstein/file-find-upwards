@@ -1,0 +1,10 @@
+---
+global:
+  name: File-Find-Upwards
+releases:
+  - author: 'Marcel Gruenauer <marcel@cpan.org>'
+    changes:
+      - original version
+    date: 2008-05-17T12:27:27Z
+    tags: []
+    version: 0.01
