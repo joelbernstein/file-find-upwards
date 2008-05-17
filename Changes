@@ -5,6 +5,7 @@ releases:
   - author: 'Marcel Gruenauer <marcel@cpan.org>'
     changes:
       - original version
-    date: 2008-05-17T12:27:27Z
+      - '.shipit: fixed svk.tagpattern and commit.header'
+    date: 2008-05-17T16:51:09Z
     tags: []
     version: 0.01
