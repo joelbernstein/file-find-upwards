@@ -8,6 +8,7 @@ releases:
       - '.shipit: fixed svk.tagpattern and commit.header'
       - 'Makefile.PL: added requirements'
       - 't/01_misc.t: added tests'
-    date: 2008-05-18T03:05:00Z
+      - '.shipit: fixed svk.tagpattern'
+    date: 2008-05-29T12:04:55Z
     tags: []
     version: 0.01
