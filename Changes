@@ -1,14 +1,8 @@
----
-global:
-  name: File-Find-Upwards
-releases:
-  - author: 'Marcel Gruenauer <marcel@cpan.org>'
-    changes:
-      - original version
-      - '.shipit: fixed svk.tagpattern and commit.header'
-      - 'Makefile.PL: added requirements'
-      - 't/01_misc.t: added tests'
-      - '.shipit: fixed svk.tagpattern'
-    date: 2008-05-29T12:04:55Z
-    tags: []
-    version: 0.01
+Revision history for Perl extension File-Find-Upwards
+
+0.01  Thu, 29 May 2008 12:04:55 -0000 (Marcel Gruenauer <marcel@cpan.org>)
+     - original version
+     - .shipit: fixed svk.tagpattern and commit.header
+     - Makefile.PL: added requirements
+     - t/01_misc.t: added tests
+     - .shipit: fixed svk.tagpattern

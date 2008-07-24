@@ -1,7 +1,6 @@
-steps = ApplyYAMLChangeLogVersion, Manifest, DistTest, Commit, Tag, MakeDist, MyUploadCPAN, DistClean, Twitter
+steps = FindVersion, ChangeVersion, CheckChangeLog, Manifest, DistTest, Commit, Tag, MakeDist, MyUploadCPAN, DistClean, Twitter
 
-svk.tagpattern = //local/coderepos/File-Find-Upwards/tags/File-Find-Upwards-%v
-commit.header = lang/perl/File-Find-Upwards
+svn.tagpattern = http://svn.coderepos.org/share/lang/perl/File-Find-Upwards/tags/File-Find-Upwards-%v
 
 twitter.config = ~/.twitterrc
 twitter.distname = File-Find-Upwards
