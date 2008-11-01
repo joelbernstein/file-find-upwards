@@ -42,32 +42,39 @@ sub file_find_upwards :Memoize {
 
 __END__
 
-
-
 =head1 NAME
 
-File::Find::Upwards - FIXME
+File::Find::Upwards - search for a upwards, starting with cwd
 
 =head1 SYNOPSIS
 
-    File::Find::Upwards->new;
+    use File::Find::Upwards ':all';
+
+    my $filename = file_find_upwards('myconfig.yaml');
+    if ($filename) { ... }
 
 =head1 DESCRIPTION
 
-=head1 METHODS
+Provides a function that can find a file in the current or a parent directory.
+
+=head1 ExPORTS
+
+Nothing is exported automatically. The function can be exported using its name
+or the C<:all> tag.
 
 =over 4
 
+=item file_find_upwards()
 
+Takes a filename and looks for the file in the current directory. If there is
+no such file, it traverses up the directory hierarchy until it finds the file
+or until it reaches the topmost directory. If the file is found, the full path
+to the file is returned. If the file is not found, undef is returned.
+
+The result is memoized, so repeated calls to the function with the same
+filename will return the result of the first call for that filename.
 
 =back
-
-File::Find::Upwards inherits from L<Exporter>.
-
-The superclass L<Exporter> defines these methods and functions:
-
-    as_heavy(), export(), export_fail(), export_ok_tags(), export_tags(),
-    export_to_level(), import(), require_version()
 
 =head1 BUGS AND LIMITATIONS
 
@@ -92,11 +99,10 @@ Marcel GrE<uuml>nauer, C<< <marcel@cpan.org> >>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright 2008 by the authors.
+Copyright 2008 by the author.
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
-
 
 =cut
 
