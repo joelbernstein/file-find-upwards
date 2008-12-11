@@ -44,7 +44,7 @@ __END__
 
 =head1 NAME
 
-File::Find::Upwards - search for a upwards, starting with cwd
+File::Find::Upwards - Search for a upwards, starting with cwd
 
 =head1 SYNOPSIS
 
