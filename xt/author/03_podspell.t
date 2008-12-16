@@ -17,6 +17,7 @@ Marcel
 ShipIt
 YAML
 behaviour
+blogs
 chomps
 distname
 github
