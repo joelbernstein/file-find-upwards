@@ -1,5 +1,10 @@
 Revision history for Perl extension File-Find-Upwards
 
+0.03  Tue Dec 16 13:20:03 CET 2008 (Marcel Gruenauer <marcel@cpan.org>)
+     - Now based on Path::Class instead of File::Spec::Functions - trying to
+       cleanly avoid a bug where it hanged on Windows because rootdir() there
+       returned '\'
+
 0.02 Sat Nov  1 09:17:35 CET 2008 (Marcel Gruenauer <marcel@cpan.org>)
      - Changed dist style and Changes back to standard. People didn't like it -
        the nail that sticks out gets hammered down.

@@ -2,37 +2,36 @@ package File::Find::Upwards;
 
 use strict;
 use warnings;
-use Cwd;
-use File::Spec::Functions qw/curdir updir rootdir rel2abs/;
+use Path::Class;
 use Attribute::Memoize;
 
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use base 'Exporter';
 
 
-our %EXPORT_TAGS = (
-    conf => [ qw/file_find_upwards/ ],
-);
-
-our @EXPORT_OK = @{ $EXPORT_TAGS{all} = [ map { @$_ } values %EXPORT_TAGS ] };
+our @EXPORT = qw(file_find_upwards);
 
 
 sub file_find_upwards :Memoize {
     my $wanted_file = shift;
 
-    my $previous_cwd = getcwd;
+    my $dir = dir('.')->absolute;
+    my %seen;
     my $result;    # left undef as we'll return undef if we didn't find it
-    while (rel2abs(curdir()) ne rootdir()) {
-        if (-f $wanted_file) {
-            $result = rel2abs(curdir());
-            last;
-        }
-        chdir(updir());
+    LOOP: {
+        do {
+            last if $seen{$dir}++;
+            my $file = $dir->file($wanted_file);
+            if (-e $file) {
+                $result = $file->absolute;
+                last LOOP;
+            }
+        } while ($dir = $dir->parent);
     }
-    chdir($previous_cwd);
+
     $result;
 }
 
@@ -44,7 +43,7 @@ __END__
 
 =head1 NAME
 
-File::Find::Upwards - Search for a upwards, starting with cwd
+File::Find::Upwards - Look for a file in the current directory and upwards
 
 =head1 SYNOPSIS
 
@@ -57,11 +56,6 @@ File::Find::Upwards - Search for a upwards, starting with cwd
 
 Provides a function that can find a file in the current or a parent directory.
 
-=head1 ExPORTS
-
-Nothing is exported automatically. The function can be exported using its name
-or the C<:all> tag.
-
 =over 4
 
 =item file_find_upwards()
@@ -73,6 +67,8 @@ to the file is returned. If the file is not found, undef is returned.
 
 The result is memoized, so repeated calls to the function with the same
 filename will return the result of the first call for that filename.
+
+This function is exported automatically.
 
 =back
 

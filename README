@@ -1,4 +1,5 @@
-This is the Perl distribution File-Find-Upwards.
+This is the Perl distribution File-Find-Upwards. It provides a function to look
+for a file in the current directory and upwards.
 
 INSTALLATION
 

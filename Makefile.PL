@@ -5,7 +5,7 @@ name 'File-Find-Upwards';
 all_from 'lib/File/Find/Upwards.pm';
 perl_version '5.006';
 
-requires 'File::Spec::Functions';
+requires 'Path::Class';
 requires 'Attribute::Memoize';
 
 test_requires 'Test::More' => '0.70';
